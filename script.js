@@ -1,20 +1,22 @@
 let aleatoire;
-for (i = 1; i <2; i++) {
-    aleatoire= Math.trunc(Math.random() * 100);
+for (i = 1; i < 2; i++) {
+    aleatoire = Math.trunc(Math.random() * 100);
     console.log(aleatoire)
 }
 
 
-
-function myFunction () {
+function myFunction() {
     let result = document.getElementById("Nombre").value;
-    if (result == aleatoire) {
+    if (result === aleatoire) {
         alert("You did it!")
-      let but =  document.createElement("button")
-        but.innerHTML =" RESET"
+        let but = document.createElement("button")
+        but.innerHTML = " RESET"
         but.style.color = "white"
         but.style.backgroundColor = "black"
         document.body.appendChild(but)
+        but.addEventListener("click", function () {
+            location.reload()
+        })
     } else if (result < aleatoire) {
         alert("c'etait plus")
     } else if (result > aleatoire) {
@@ -24,17 +26,18 @@ function myFunction () {
     let numberTest = document.createElement("li");
     numberTest.innerHTML += "Nombre déja utilisé: " + result;
     document.body.appendChild(numberTest);
-    if (document.getElementsByTagName("li").length === 10){
+    if (document.getElementsByTagName("li").length === 10) {
         alert("Désole gros, You Loose")
-        let but =  document.createElement("button")
-        but.innerHTML =" RESET"
+        let but = document.createElement("button")
+        but.innerHTML = " RESET"
         but.style.color = "white"
         but.style.backgroundColor = "black"
         document.body.appendChild(but)
         but.addEventListener("click", function () {
-            //delete (numberTest.innerHTML)
+            location.reload()
         })
     }
 }
+
 let test = document.getElementById("test");
 test.addEventListener("click", myFunction)
